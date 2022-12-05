@@ -8,7 +8,9 @@ import {
 import Product, { ProductDocument } from "../Models/product.model";
 
 export function createProduct(
-  input: DocumentDefinition<Omit<ProductDocument, "createdAt" | "updatedAt" | "productId">>
+  input: DocumentDefinition<
+    Omit<ProductDocument, "createdAt" | "updatedAt" | "productId" | "inStock">
+  >
 ) {
   return Product.create(input);
 }

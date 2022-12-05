@@ -12,7 +12,7 @@ type Props = {};
 type Filters = {
   size?: string;
   colours?: string;
-}
+};
 
 const ProductList = (props: Props) => {
   const location = useLocation();
@@ -20,37 +20,37 @@ const ProductList = (props: Props) => {
   const [filters, setFilters] = useState<Filters>({} as Filters);
   const [sort, setSort] = useState("newest");
 
+  console.log('sort', sort)
+
   const handleFilters = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setFilters({
       ...filters,
-      [e.target.name]: value,
-    })
-  }
+      [e.target.name]: value , // make it to lowercase once saved in db as lowercase
+    });
+  };
 
-  // console.log(filters)
-  
   return (
     <S.Container>
-      <Announcement />
       <Navbar />
-      <S.Title>Dresses</S.Title>
+      <Announcement />
+      <S.Title>{category}</S.Title>
       <S.FilterContainer>
         <S.Filter>
           <S.FilterText>Filter Products: </S.FilterText>
           <S.Select name="colour" onChange={handleFilters}>
-            <S.Option disabled>
+            <S.Option disabled selected>
               Color
             </S.Option>
-            <S.Option>White</S.Option>
-            <S.Option>Black</S.Option>
-            <S.Option>Red</S.Option>
-            <S.Option>Blue</S.Option>
-            <S.Option>Yellow</S.Option>
-            <S.Option>Green</S.Option>
+            <S.Option>white</S.Option>
+            <S.Option>black</S.Option>
+            <S.Option>red</S.Option>
+            <S.Option>blue</S.Option>
+            <S.Option>yellow</S.Option>
+            <S.Option>green</S.Option>
           </S.Select>
-          <S.Select name="size" onChange={handleFilters} >
-            <S.Option disabled>
+          <S.Select name="size" onChange={handleFilters}>
+            <S.Option disabled selected>
               Size
             </S.Option>
             <S.Option>XS</S.Option>
@@ -62,7 +62,7 @@ const ProductList = (props: Props) => {
         </S.Filter>
         <S.Filter>
           <S.FilterText>Sort Products: </S.FilterText>
-          <S.Select>
+          <S.Select onChange={(e) => setSort(e.target.value)}>
             <S.Option value="newest">Newest</S.Option>
             <S.Option value="asc">Price (asc)</S.Option>
             <S.Option value="desc">Price (desc)</S.Option>

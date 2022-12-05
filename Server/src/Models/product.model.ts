@@ -11,8 +11,8 @@ export interface ProductDocument extends mongoose.Document {
   description: string;
   image: string;
   categories: Array<string>;
-  size: Array<string>;
-  colour: Array<string>;
+  size: string;
+  colour: string;
   price: number;
   inStock: boolean;
   productId: string;  

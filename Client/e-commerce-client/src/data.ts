@@ -23,27 +23,27 @@ export const categories = [
     image:
       "https://static.zara.net/photos///2021/I/0/1/p/9637/721/400/17/w/596/9637721400_1_1_1.jpg?ts=1638531249647",
     title: "DRESS STYLE!",
-    url: "/products/women",
+    url: "/products/woman",
     button: "SHOP WOMEN",
-    category: "women",
+    category: "woman",
   },
   {
     id: 2,
     image:
       "https://static.zara.net/photos///2022/V/0/2/p/4133/141/902/32/w/807/4133141902_15_1_1.jpg?ts=1638869481626",
     title: "LOUNGEWEAR LOVE",
-    url: "/products/men",
+    url: "/products/man",
     button: "SHOP MEN",
-    category: "coat",
+    category: "man",
   },
   {
     id: 3,
     image:
       "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     title: "LIGHT JACKETS",
-    url: "/products/women",
+    url: "/products/woman",
     button: "SHOP WOMEN",
-    category: "jeans",
+    category: "woman",
   },
 ];
 

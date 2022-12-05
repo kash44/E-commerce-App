@@ -1,4 +1,3 @@
-import React from "react";
 import ProductList from "./Pages/ProductList/ProductList";
 import Home from "./Pages/Home/Home";
 import Product from "./Pages/Product/Product";
@@ -6,7 +5,7 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart";
 
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 function App() {

@@ -1,4 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Announcement from "../../Components/Announcement/Announcement";
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -8,6 +11,24 @@ import * as S from "./Product.styled";
 type Props = {};
 
 const Product = (props: Props) => {
+  const location = useLocation();
+  const Id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState();
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/api/products/${Id}`)
+        setProduct(res.data)
+      } catch (error) {
+        return error
+      }
+    }
+    getProduct();
+  }, [Id])
+
+  console.log('product right here', product)
+
   return (
     <S.Container>
       <Navbar />
@@ -41,12 +62,12 @@ const Product = (props: Props) => {
             </S.Filter>
           </S.FilterContainer>
           <S.AddContainer>
-              <S.AmountContainer>
-                  <Remove />
-                  <S.Amount>1</S.Amount>
-                  <Add />
-              </S.AmountContainer>
-              <S.Button>ADD TO CART</S.Button>
+            <S.AmountContainer>
+              <Remove />
+              <S.Amount>1</S.Amount>
+              <Add />
+            </S.AmountContainer>
+            <S.Button>ADD TO CART</S.Button>
           </S.AddContainer>
         </S.InfoContainer>
       </S.Wrapper>

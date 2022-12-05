@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-export type ProductsProps = {
-  id: number;
-  image: string;
+export type ProductProps = {
+  id?: number;
+  image?: string;
+  item?: string;
+  product?: any;
 };
 
 export const Info = styled.div`

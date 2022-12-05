@@ -14,6 +14,7 @@ import {
   CreateProductInput,
   UpdateProductInput,
   GetProductInput,
+  getProductSchema,
   // GetAllProducts,
 } from "../Schema/product.schema";
 
@@ -63,8 +64,8 @@ export async function getProductHandler(
 ) {
   try {
     const productId = req.params.productId;
-    console.log(req);
-    const product = await findProduct({ productId });
+    const product = await findProduct({ _id: productId });
+    console.log('product', product)
 
     if (!product) {
       return res.sendStatus(404).json('Product not found');
@@ -92,6 +93,7 @@ export async function getAllProductsHandler(
 
   if (category) {
     products = await findAllProducts({ categories: { $in: [category] } });
+    console.log('products', products)
   } else {
     products = await findAllProducts();
   }
